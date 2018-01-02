@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-    {{!-- Document Settings --}}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    {{!-- Base Meta --}}
-    <title>{{meta_title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{!-- Styles'n'Scripts --}}
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
-    {{ghost_head}}
-</head>
-<body class="{{body_class}}">
-    <div class="site-wrapper">
-        {{#foreach posts}}
-            <h2>{{title}}</h2>
-            {{content}}
-        {{/foreach}}
-    </div>
-    {{ghost_foot}}
-</body>
+    <head>
+        {{!-- Document Settings --}}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        {{!-- Base Meta --}}
+        <title>{{meta_title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {{!-- Styles'n'Scripts --}}
+        <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+        {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+        {{ghost_head}}
+    </head>
+    <body class="{{body_class}}">
+        <div class="site-wrapper">
+            {{> blog-header}}
+            <div class="site-content">
+                {{#foreach posts}}
+                    {{> article}}
+                {{/foreach}}
+                <!--
+                {{pagination}}
+                -->
+            </div>
+        </div>
+        {{ghost_foot}}
+    </body>
 </html>

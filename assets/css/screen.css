@@ -1,9 +1,123 @@
 body {
     font: 1em/1.5 sans-serif;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
-    color: #333;
+    color: #222;
+
+    max-width: 700px;
+    margin: 0 auto 10vh;
 }
 
 img {
     max-width: 100%;
+}
+
+a {
+    color: #fc4242;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #ad2727;
+}
+
+.site-header {
+    text-align: center;
+    padding: 40vh 0 20vh;
+}
+
+.site-header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-title {
+    text-transform: uppercase;
+    letter-spacing: 5pt;
+    font-size: 7pt;
+    line-height: 1.2;
+    font-weight: 300;
+    visibility: hidden;
+    animation: 2000ms linear 500ms appear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.site-header hr {
+    border: none;
+    margin-top: 30px;
+    border-top: 1px solid #fc4242;
+    visibility: hidden;
+    width: 0;
+    animation: 1000ms ease-out 500ms sign;
+    animation-fill-mode: forwards;
+}
+
+@keyframes sign {
+    0% {
+        visibility: visible;
+        opacity: 0;
+        width: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+        width: 150px;
+    }
+}
+
+.site-content {
+    visibility: hidden;
+    animation: 3000ms ease-out 2000ms present;
+    animation-fill-mode: forwards;
+}
+
+@keyframes present {
+    0% {
+        visibility: visible;
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+article + article {
+    margin-top: 10em;
+}
+
+.post-footer {
+    margin-top: 2em;
+    font-size: 9pt;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.post-footer a {
+    color: #fc4242;
+    text-decoration: none;
+}
+
+.post-footer::before {
+    content: "●";
+    color: #fc4242;
+    margin-right: .5em;
 }
