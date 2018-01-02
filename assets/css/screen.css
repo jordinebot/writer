@@ -1,0 +1,9 @@
+body {
+    font: 1em/1.5 sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
+    color: #333;
+}
+
+img {
+    max-width: 100%;
+}
