@@ -1,0 +1,34 @@
+<script async defer>
+	var hearts = document.querySelectorAll('.fa-heart');
+	var displays = {};
+
+	var increaseDisplay = function(display) {
+		display.counter++;
+		display.node.innerText = display.counter;
+		localStorage.setItem('likes-' + display.id, display.counter);
+	}
+
+	hearts.forEach(function(heart) {
+		var id = heart.dataset.id;
+		var liked = localStorage.getItem('liked-' + id) || false;
+
+		displays[id] = {
+			id:      id,
+			node:    document.getElementById('likes-' + id),
+			counter: parseInt(localStorage.getItem('likes-' + id)) || 0,
+		};
+		displays[id].node.innerText = displays[id].counter;
+
+		if (liked) {
+			heart.classList.add('liked');
+		}
+
+		heart.addEventListener('click', function() {
+			var id = this.dataset.id;
+			var display = displays[id];
+			increaseDisplay(display);
+			this.classList.add('liked');
+			localStorage.setItem('liked-' + id, true);
+		});
+	});
+</script>
